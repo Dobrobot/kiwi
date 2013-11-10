@@ -642,6 +642,11 @@ describe "Wikitext parser" do
 	end
   end
 
+  describe "comments" do
+    it "should print as-is" do
+      parse("<!-- comment -->").should include "<!-- comment -->"
+    end
+  end
 
   # TODO: categories
   # TODO: redirects
