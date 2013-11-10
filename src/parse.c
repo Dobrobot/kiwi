@@ -165,7 +165,11 @@ KIWI_ACTION(local_link_action_1) {
 
 KIWI_ACTION(image_action_1) {
   if(image_attributes & IMAGE_FRAME) {
-    bprintf("<div class=\"thumb tright\"><div class=\"thumbinner\">");
+    bprintf("<div class=\"thumb tright\"><div class=\"thumbinner\"");
+    if (image_attributes & IMAGE_SIZE) {
+      bprintf(" style=\"width:%s\"", bdata(image_size));
+    }
+    bprintf(">");
   }
 
   if(!(image_attributes & IMAGE_NOLINK)) {
@@ -190,7 +194,7 @@ KIWI_ACTION(image_action_1) {
   }
 
   if(image_attributes & IMAGE_FRAME) {
-    bprintf("<div class=\"thumbcaption\">%s</div></div>", bdata(image_caption));
+    bprintf("<div class=\"thumbcaption\">%s</div></div></div>", bdata(image_caption));
   }
 }
 

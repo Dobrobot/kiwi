@@ -21,6 +21,7 @@
 #define IMAGE_CUSTOMLINK ( 1 << 3 )
 #define IMAGE_HAS_CAPTION ( 1 << 4 )
 #define IMAGE_BORDER ( 1 << 5 )
+#define IMAGE_SIZE ( 1 << 6 )
 
 #define TOC_NOTOC ( 1 << 1 )
 #define TOC_FORCETOC ( 1 << 2 )
@@ -40,6 +41,7 @@ bstring image_url;
 bstring image_variables;
 bstring image_link_url;
 bstring image_caption;
+bstring image_size;
 
 // Links
 bstring link_path;
