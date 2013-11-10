@@ -259,7 +259,7 @@ describe "Wikitext parser" do
     end
 
 	it "should blend single apostrophes" do
-      parse("[[Ward]]'s wiki").should include("Ward's</a> wiki")
+      parse("[[Ward]]'s wiki").should include("Ward</a>'s wiki")
 	end
 
     describe "external links" do
