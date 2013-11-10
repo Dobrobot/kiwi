@@ -294,10 +294,10 @@ void cleanup(void) {
   kw_list_free(&template_list);
 
   // Clean up after leg...
-  if(yyctx->buf) free(yyctx->buf);
-  if(yyctx->text) free(yyctx->text);
-  if(yyctx->thunks) free(yyctx->thunks);
-  if(yyctx->vals) free(yyctx->vals);
+  if(yyctx->__buf) free(yyctx->__buf);
+  if(yyctx->__text) free(yyctx->__text);
+  if(yyctx->__thunks) free(yyctx->__thunks);
+  if(yyctx->__vals) free(yyctx->__vals);
 
-  yyctx->buflen = 0;
+  yyctx->__buflen = 0;
 }
