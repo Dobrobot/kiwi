@@ -109,7 +109,7 @@ image = open_image { btrunc(image_variables, 0); } file_indicator arguments? ima
 open_image = '[[' space*
 
 close_image = space* ']]'
-file_indicator = ( 'File:' | 'Image:' ) < ( !'|' !close_image . )* >           { bassignformat(image_url, "%s", yytext); }
+file_indicator = ( 'File:' | 'Image:' | 'ファイル:' | '画像:' ) < ( !'|' !close_image . )* >           { bassignformat(image_url, "%s", yytext); }
 arguments = '|' ( special_image_variables | generic_variable value ) arguments?
 special_image_variables = image_type | float | image_link | image_border | image_size
 image_type = frame | thumb

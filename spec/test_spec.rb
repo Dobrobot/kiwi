@@ -334,6 +334,11 @@ describe "Wikitext parser" do
       parse("[[Image:image.png]]").should == '<p><a href="/File:image.png" class="image"><img src="image.png" /></a></p>'
     end
 
+    it "should be able to use the alternate localized indicator" do
+      parse("[[ファイル:image.png]]").should == '<p><a href="/File:image.png" class="image"><img src="image.png" /></a></p>'
+      parse("[[画像:image.png]]").should == '<p><a href="/File:image.png" class="image"><img src="image.png" /></a></p>'
+    end
+
     it "should be able to apply alt-text to an image" do
       parse("[[File:image.png|alt=alt text]]").should include('alt="alt text"')
     end
