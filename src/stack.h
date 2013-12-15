@@ -1,7 +1,7 @@
 #ifndef __STACK_H
 #define __STACK_H
 
-#define STACK_DEFAULT_SIZE 32
+#define STACK_DEFAULT_SIZE 1024
 
 typedef struct stack {
   int pos;	// The current position in the stack array
