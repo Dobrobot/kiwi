@@ -321,7 +321,12 @@ describe "Wikitext parser" do
       end
     end
 
-    # TODO: size attribute
+    it "should be able to specify the size of an image" do
+      parse("[[File:image.png|150px]]").should == '<p><a href="/File:image.png" class="image"><img src="image.png" width="150"/></a></p>'
+      parse("[[File:image.png|250px]]").should == '<p><a href="/File:image.png" class="image"><img src="image.png" width="250"/></a></p>'
+      parse("[[File:image.png|thumbnail|250px]]").should == '<div class="thumbinner" style="width:250px"><a href="/File:image.png" class="image"><img src="image.png" width="250"/></a></div>'
+    end
+
     it "should be able to make an image" do
       parse("[[File:image.png]]").should == '<p><a href="/File:image.png" class="image"><img src="image.png" /></a></p>'
     end
