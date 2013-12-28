@@ -259,7 +259,7 @@ static const struct hashed_tag tags_hash[512] = {
   [31]  { "hr",         { "id", "name" }, 2, true },
   [47]  { "ins",        { "id", "name" }, 2, false },
   [60]  { "abbr",       { "id", "name" }, 2, false },
-  [72]  { "div",        { "id", "name" }, 2, true },
+  [72]  { "div",        { "id", "name" }, 2, false },
   [94]  { "small",      { "id", "name" }, 2, false },
   [108] { "pre",        { "id", "name" }, 2, false },
   [119] { "span",       { "id", "name" }, 2, true },

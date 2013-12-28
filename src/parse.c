@@ -331,7 +331,7 @@ KIWI_ACTION(tag_close_action_1) {
 
   btolower(tag_name);
   if(valid_html_tag(bdata(tag_name), tag_name->slen)) {
-    if(tag_self_closing(bdata(tag_name)) && yytext && yytext[yyleng-1] == '/') {
+    if(tag_self_closing(bdata(tag_name))) {
       bprintf("<%s%s>", bdata(tag_name), bdata(tag_attributes_validated));
     } else {
       if(bdata(tag_name)[0] == '/') {

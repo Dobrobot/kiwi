@@ -637,6 +637,10 @@ describe "Wikitext parser" do
       parse("<h1>sadf</h1><h2 style=\"color: red\">asdf</h2>").should == "<p><h1>sadf</h1><h2 style=\"color: red\">asdf</h2></p>"      
 	end
 
+    it "should allow <br> as an empty tags" do
+      parse("test<br>test").should == "<p>test<br>test</p>"
+    end
+
 	describe "poorly nested tags" do
 	  it "should auto-close tags that are not closed when their parent tag gets closed" do
 	    parse("<div><b>testing</div>").should include "<div><b>testing</b></div>"
