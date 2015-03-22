@@ -115,7 +115,7 @@ special_image_variables = image_type | float | image_link | image_border | image
 image_type = frame | thumb
 frame = 'frame'                                                                { image_attributes |= IMAGE_FRAME; }
 thumb = ( 'thumbnail' | 'thumb' )                                              { image_attributes |= IMAGE_THUMB; image_attributes |= IMAGE_FRAME; }
-image_size = < [0-9]+ 'px' >                                                   { bcatcstr(image_size, yytext); image_attributes |= IMAGE_SIZE; }
+image_size = < [0-9]+ 'px' >                                                   { bassigncstr(image_size, yytext); image_attributes |= IMAGE_SIZE; }
 float = < ( 'left' | 'right' | 'center' ) >                                    { bformata(image_variables, " class=\"float%s\"", yytext); }
   | 'none'
 image_link = 'link=' < ( !'|' !close_image . )* >                              { RUN_ACTION(image_link_action_1); }
