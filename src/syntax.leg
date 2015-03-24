@@ -98,7 +98,7 @@ link_url = < ( !' ' !']' . )+ >                                                {
 link_name = < ( !']' . )+ >                                                    { append_to_tag_content("%s", yytext); }
 
 unnamed_link = '[' !'javascript:' < ( !']' . )* > ']'                          { append_to_tag_content("<a href=\"%s\">%s</a>", yytext, yytext);}
-url = protocol '://' < ( !eol !' ' . )* >                                      { append_to_tag_content("<a href=\"%s://%s\">%s://%s</a>", protocol, yytext, protocol, yytext); }
+url = protocol '://' < ( '%' [0-9a-fA-F][0-9a-fA-F] | [/!$&-.0-;=A-Z_a-z~] )* >                                      { append_to_tag_content("<a href=\"%s://%s\">%s://%s</a>", protocol, yytext, protocol, yytext); }
 protocol =  < ( 'http' | 'https' | 'ftp' ) >                                   { strcpy(protocol, yytext); } 
 link_open = '[['
 link_close = ']]'
