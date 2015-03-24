@@ -127,7 +127,7 @@ image_caption = '|' < (( '[[' (!']]' .)* ']]' )* !close_image . )* >           {
 # Tables
 table = table_open eol* table_caption? ( table_row | table_headers | pseudo_row )* eol* { brtrimws(output_buffer); bprintf("</table>"); } table_close?
 table_specials = ( [|+}!] | '-' )
-table_delims =  ( ( '|' table_specials ) | ( &{start_of_line} '!' ) | ( &{start_of_line} '|') )
+table_delims =  ( ( '|' table_specials ) | ( &{start_of_line} '!' ) | ( &{start_of_line} '|') | ( '!' table_specials ) )
 table_open = '{|' space*                                                       { RUN_ACTION(table_open_action_1); }
   cell_attribute_list*                                                         { RUN_ACTION(table_open_action_2); }  
 
@@ -165,7 +165,7 @@ sol_cell_simple  = ( sol_cell_open space*                                      {
 
 # -- inline cell
 inline_cell = ( inline_cell_complex | inline_cell_simple ) 
-inline_cell_open = '||'                                                        { RUN_ACTION(inline_cell_open_action_1); }
+inline_cell_open = ( '||' | '!!' )                                                        { RUN_ACTION(inline_cell_open_action_1); }
 inline_cell_complex = ( inline_cell_open cell_attribute_list
   space* '|' !'|' space* ( !table_delims wikitext )* cell_close? )             { RUN_ACTION(cell_close_action_1); }
 inline_cell_simple = inline_cell_open space*                                   { bprintf(">"); }
