@@ -1,7 +1,8 @@
 EXAMPLES = syntax
 OS=$(shell uname)
 
-CFLAGS = -fPIC -O3 -g3 -Wall -std=gnu99
+CFLAGS = -fPIC -O3 -g3 -Wall -std=gnu99 -Wno-unused-function -Wno-unused-but-set-variable -Wl,--allow-multiple-definition
+
 all : $(EXAMPLES)
 
 syntax : .FORCE
