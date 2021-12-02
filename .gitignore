@@ -1,5 +1,5 @@
 bin/*
-syntax.leg.c
+#syntax.leg.c
 *.swp
 *.swo
 *.o
